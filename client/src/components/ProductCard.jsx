@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Heart, ShoppingCart } from 'lucide-react';
 import RatingStars from './RatingStars.jsx';
-import { useCart } from '../context/CartContext.jsx';
-import { useWishlist } from '../context/WishlistContext.jsx';
+import { useCart } from '../hooks/useCart.js';
+import { useWishlist } from '../hooks/useWishlist.js';
 import {
   formatPrice,
   getCategoryName,

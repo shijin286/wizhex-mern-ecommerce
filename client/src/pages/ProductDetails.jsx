@@ -20,8 +20,8 @@ import ErrorState from '../components/ErrorState.jsx';
 import EmptyState from '../components/EmptyState.jsx';
 import SectionHeader from '../components/SectionHeader.jsx';
 import useFetch from '../hooks/useFetch.js';
-import { useCart } from '../context/CartContext.jsx';
-import { useWishlist } from '../context/WishlistContext.jsx';
+import { useCart } from '../hooks/useCart.js';
+import { useWishlist } from '../hooks/useWishlist.js';
 import { fetchProduct, fetchProducts } from '../services/productService.js';
 import { DELIVERY_PROMISE } from '../utils/constants.js';
 import {

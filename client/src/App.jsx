@@ -17,7 +17,19 @@ const Register = lazy(() => import('./pages/Register.jsx'));
 const About = lazy(() => import('./pages/About.jsx'));
 const Contact = lazy(() => import('./pages/Contact.jsx'));
 const Wishlist = lazy(() => import('./pages/Wishlist.jsx'));
+const Checkout = lazy(() => import('./pages/Checkout.jsx'));
+const OrderSuccess = lazy(() => import('./pages/OrderSuccess.jsx'));
+const Orders = lazy(() => import('./pages/Orders.jsx'));
+const OrderDetails = lazy(() => import('./pages/OrderDetails.jsx'));
+const Profile = lazy(() => import('./pages/Profile.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound.jsx'));
+
+const AdminLayout = lazy(() => import('./layouts/AdminLayout.jsx'));
+const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard.jsx'));
+const AdminOrders = lazy(() => import('./pages/admin/AdminOrders.jsx'));
+const AdminProducts = lazy(() => import('./pages/admin/AdminProducts.jsx'));
+const AdminCategories = lazy(() => import('./pages/admin/AdminCategories.jsx'));
+const AdminUsers = lazy(() => import('./pages/admin/AdminUsers.jsx'));
 
 export default function App() {
   return (
@@ -41,9 +53,25 @@ export default function App() {
 
             <Route element={<ProtectedRoute />}>
               <Route path="wishlist" element={<Wishlist />} />
+              <Route path="checkout" element={<Checkout />} />
+              <Route path="order-success/:id" element={<OrderSuccess />} />
+              <Route path="orders" element={<Orders />} />
+              <Route path="orders/:id" element={<OrderDetails />} />
+              <Route path="profile" element={<Profile />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
+          </Route>
+
+          {/* The UI check is for convenience; every admin API call is authorised on the server. */}
+          <Route path="admin" element={<ProtectedRoute adminOnly />}>
+            <Route element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="orders" element={<AdminOrders />} />
+              <Route path="products" element={<AdminProducts />} />
+              <Route path="categories" element={<AdminCategories />} />
+              <Route path="users" element={<AdminUsers />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>

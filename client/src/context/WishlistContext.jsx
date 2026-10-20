@@ -1,11 +1,11 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { useAuth } from './AuthContext.jsx';
+import { useAuth } from '../hooks/useAuth.js';
 import { addToWishlist, fetchWishlist, removeFromWishlist } from '../services/wishlistService.js';
 import { getErrorMessage } from '../services/api.js';
 
-const WishlistContext = createContext(null);
+import { WishlistContext } from './contexts.js';
 
 export function WishlistProvider({ children }) {
   const { user, loading: authLoading } = useAuth();
@@ -80,10 +80,4 @@ export function WishlistProvider({ children }) {
   );
 
   return <WishlistContext.Provider value={value}>{children}</WishlistContext.Provider>;
-}
-
-export function useWishlist() {
-  const context = useContext(WishlistContext);
-  if (!context) throw new Error('useWishlist must be used inside <WishlistProvider>');
-  return context;
 }

@@ -16,9 +16,9 @@ import {
 import toast from 'react-hot-toast';
 import Logo from './Logo.jsx';
 import SearchBar from './SearchBar.jsx';
-import { useAuth } from '../context/AuthContext.jsx';
-import { useCart } from '../context/CartContext.jsx';
-import { useWishlist } from '../context/WishlistContext.jsx';
+import { useAuth } from '../hooks/useAuth.js';
+import { useCart } from '../hooks/useCart.js';
+import { useWishlist } from '../hooks/useWishlist.js';
 import useClickOutside from '../hooks/useClickOutside.js';
 import { NAV_LINKS } from '../utils/constants.js';
 import { getInitials } from '../utils/format.js';

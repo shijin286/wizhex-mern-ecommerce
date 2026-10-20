@@ -6,7 +6,7 @@ import toast from 'react-hot-toast';
 import AuthShell from '../components/AuthShell.jsx';
 import PasswordInput from '../components/PasswordInput.jsx';
 import Spinner from '../components/Spinner.jsx';
-import { useAuth } from '../context/AuthContext.jsx';
+import { useAuth } from '../hooks/useAuth.js';
 import { getErrorMessage } from '../services/api.js';
 import { rules } from '../utils/validation.js';
 

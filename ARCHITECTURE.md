@@ -33,7 +33,7 @@ Key principles
 ## 2. Folder structure
 
 ```
-shopsphere/
+wizhex-mern-ecommerce/
 ├── package.json              # root scripts (concurrently)
 ├── README.md
 ├── ARCHITECTURE.md
@@ -78,9 +78,9 @@ shopsphere/
 
 | Constant                  | Value  | Where                                              |
 | ------------------------- | ------ | -------------------------------------------------- |
-| Currency                  | INR ₹  | client `utils/format.js`, server                   |
-| `FREE_SHIPPING_THRESHOLD` | 999    | client `utils/constants.js`, server `utils/pricing.js` |
-| `SHIPPING_FEE`            | 99     | same                                               |
+| Currency                  | USD $  | client `utils/format.js`, server                   |
+| `FREE_SHIPPING_THRESHOLD` | 0 (digital delivery) | client `utils/constants.js`, server `utils/pricing.js` |
+| `SHIPPING_FEE`            | 0      | same                                               |
 | Max quantity per line     | stock  | enforced server-side                               |
 
 ## 4. Data shapes returned by the API

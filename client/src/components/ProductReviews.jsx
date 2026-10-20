@@ -7,7 +7,7 @@ import RatingStars from './RatingStars.jsx';
 import Spinner from './Spinner.jsx';
 import ErrorState from './ErrorState.jsx';
 import useFetch from '../hooks/useFetch.js';
-import { useAuth } from '../context/AuthContext.jsx';
+import { useAuth } from '../hooks/useAuth.js';
 import { createReview, fetchReviews } from '../services/productService.js';
 import { getErrorMessage } from '../services/api.js';
 import { formatDate, getInitials } from '../utils/format.js';

@@ -5,8 +5,8 @@ import PageHeader from '../components/PageHeader.jsx';
 import QuantitySelector from '../components/QuantitySelector.jsx';
 import EmptyState from '../components/EmptyState.jsx';
 import Spinner from '../components/Spinner.jsx';
-import { useCart } from '../context/CartContext.jsx';
-import { useAuth } from '../context/AuthContext.jsx';
+import { useCart } from '../hooks/useCart.js';
+import { useAuth } from '../hooks/useAuth.js';
 import { DELIVERY_PROMISE, PLACEHOLDER_IMAGE } from '../utils/constants.js';
 import { formatPrice, getDiscountPercent, handleImageError } from '../utils/format.js';
 

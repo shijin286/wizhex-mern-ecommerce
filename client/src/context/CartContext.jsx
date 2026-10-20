@@ -1,6 +1,6 @@
-import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
-import { useAuth } from './AuthContext.jsx';
+import { useAuth } from '../hooks/useAuth.js';
 import { fetchServerCart, saveServerCart } from '../services/cartService.js';
 import { getErrorMessage } from '../services/api.js';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE } from '../utils/constants.js';
@@ -8,7 +8,7 @@ import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE } from '../utils/constants.js';
 const GUEST_CART_KEY = 'wizhex_guest_cart';
 const SAVE_DELAY_MS = 500;
 
-const CartContext = createContext(null);
+import { CartContext } from './contexts.js';
 
 function isValidItem(item) {
   return (
@@ -37,7 +37,7 @@ function writeGuestCart(items) {
   }
 }
 
-export function toCartItem(product, quantity) {
+function toCartItem(product, quantity) {
   return {
     productId: product._id,
     name: product.name,
@@ -238,10 +238,4 @@ export function CartProvider({ children }) {
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-}
-
-export function useCart() {
-  const context = useContext(CartContext);
-  if (!context) throw new Error('useCart must be used inside <CartProvider>');
-  return context;
 }

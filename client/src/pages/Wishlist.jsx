@@ -3,7 +3,7 @@ import { Heart } from 'lucide-react';
 import PageHeader from '../components/PageHeader.jsx';
 import ProductGrid from '../components/ProductGrid.jsx';
 import EmptyState from '../components/EmptyState.jsx';
-import { useWishlist } from '../context/WishlistContext.jsx';
+import { useWishlist } from '../hooks/useWishlist.js';
 
 export default function Wishlist() {
   const { products, loading, count } = useWishlist();

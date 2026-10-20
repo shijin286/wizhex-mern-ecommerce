@@ -45,6 +45,10 @@ const config = {
     keyId: process.env.RAZORPAY_KEY_ID || '',
     keySecret: process.env.RAZORPAY_KEY_SECRET || '',
   },
+  // Clearly labelled fake payments for demos. Set ALLOW_SIMULATED_PAYMENTS=false on a real store.
+  allowSimulatedPayments: process.env.ALLOW_SIMULATED_PAYMENTS !== 'false',
+  // Unpaid orders hold stock for this long before they are cancelled automatically.
+  unpaidOrderTtlMinutes: Number(process.env.UNPAID_ORDER_TTL_MINUTES) || 30,
 };
 
 module.exports = config;
